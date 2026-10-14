@@ -6,3 +6,6 @@
 - [x] Supprimer l’ancienne adresse e-mail et vérifier les deux langues.
 - [x] Ajouter les métadonnées SEO et les aperçus de partage bilingues, puis vérifier les deux langues.
 - [x] Remplacer le CV téléchargeable par la nouvelle version (CV_Gemini_CHINASAMY.pdf) et vérifier le téléchargement.
+- [ ] Traduire le PDF fourni en anglais et proposer le choix FR/EN au téléchargement.
+- [ ] Ajouter le téléphone avec appel direct et vérifier sur mobile.
+- [ ] Remplacer l’icône du navigateur et supprimer les références visibles à Lovable.
