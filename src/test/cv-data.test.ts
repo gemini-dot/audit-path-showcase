@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { contactEmail, filterSkills, getExperiences, getSkills } from '../lib/cv-data';
+import { contactEmail, contactPhone, contactPhoneHref, filterSkills, getExperiences, getSkills } from '../lib/cv-data';
 
 describe('Filtres des expertises', () => {
   it('ne conserve que la conformité lorsque cette catégorie est sélectionnée', () => {
@@ -23,5 +23,9 @@ describe('CV bilingue', () => {
 
   it('utilise uniquement le contact conservé', () => {
     expect(contactEmail).toBe('gemini@chinasamy.com');
+  });
+  it('utilise le numéro fourni et sa forme internationale pour les appels', () => {
+    expect(contactPhone).toBe('06.47.43.65.27');
+    expect(contactPhoneHref).toBe('tel:+33647436527');
   });
 });

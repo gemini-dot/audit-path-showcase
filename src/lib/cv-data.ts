@@ -57,6 +57,8 @@ export function filterSkills(category: Category) {
 }
 export type Language = 'fr' | 'en';
 export const contactEmail = 'gemini@chinasamy.com';
+export const contactPhone = '06.47.43.65.27';
+export const contactPhoneHref = 'tel:+33647436527';
 
 export const englishExperiences: typeof experiences = [
   {
@@ -121,7 +123,7 @@ export const cvCopy = {
     title: 'Gemini CHINASAMY — Audit Manager & P&C Claims Strategy Expert',
     description: 'Explore Gemini CHINASAMY’s experience in audit, risk management, regulatory compliance and property & casualty claims strategy in Paris.',
     nav: ['Profile', 'Experience', 'Expertise', 'Education'], home: 'Gemini Chinasamy, home', contact: 'Get in touch', closeMenu: 'Close menu', openMenu: 'Open menu', mainNav: 'Main navigation', mobileNav: 'Mobile navigation',
-    eyebrow: 'AUDIT · RISK · INSURANCE', role: ['Audit Manager & Expert', 'P&C Claims Strategy'], heroDescription: ['Strategic vision. Operational excellence.', 'Committed to effective risk management.'], download: 'Download my CV (French)', discover: 'Explore my experience', location: 'Greater Paris area', caption: 'Rigour. Vision. Impact.', discoverProfile: 'Explore the profile',
+    eyebrow: 'AUDIT · RISK · INSURANCE', role: ['Audit Manager & Expert', 'P&C Claims Strategy'], heroDescription: ['Strategic vision. Operational excellence.', 'Committed to effective risk management.'], download: 'Download my CV', discover: 'Explore my experience', location: 'Greater Paris area', caption: 'Rigour. Vision. Impact.', discoverProfile: 'Explore the profile',
     credentialsLabel: 'Professional highlights', years: 'years in insurance', auditRisk: 'Audit & Risk', transversal: 'cross-functional expertise', international: 'France & International', borders: 'a perspective beyond borders', excellence: 'Compliance & operational excellence',
     profileLabel: '01 / PROFILE', profileHeading: ['The rigour of audit.', 'A hands-on perspective.'], intro: ['From handling complex claims to leading audits, my career has been shaped by the practical realities of the insurance industry.', 'At Wakam, I support partners and teams in managing their risks, strengthening compliance and improving their processes. An approach that combines analysis, rigour and support for change.'],
     careerLabel: '02 / EXPERIENCE', careerHeading: 'A career built on progress.', oldest: 'Oldest to newest', newest: 'Newest to oldest', current: 'CURRENT ROLE',
