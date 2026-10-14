@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Application rules
+- Keep resume content and skill filtering in the browser-safe `src/lib/cv-data.ts` module so presentation and filtering can share a testable source of truth.
+- Serve supplied portraits and the original downloadable resume through Lovable Assets pointers to avoid bundling binaries.
+- Keep the resume as one index route with anchored sections; chronology expansion and category filters are client-side presentation state.
