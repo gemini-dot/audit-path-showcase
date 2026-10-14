@@ -4,7 +4,7 @@ import { ArrowDown, ArrowUpRight, Check, ChevronDown, Download, GraduationCap, L
 import { Button } from '@/components/ui/button';
 import studio from '@/assets/gemini-studio.jpg.asset.json';
 import portrait from '@/assets/gemini-portrait.png.asset.json';
-import cv from '@/assets/gemini-cv.pdf.asset.json';
+import cv from '@/assets/cv-gemini-chinasamy.pdf.asset.json';
 import { categories, getExperiences, getSkills, cvCopy, englishCategories, contactEmail, type Category, type Language } from '@/lib/cv-data';
 import { getCvHead } from '@/lib/cv-seo';
 
@@ -62,7 +62,7 @@ function Index() {
             <h2>{t.role[0]}<br />{t.role[1]}</h2>
             <p className="hero-description">{t.heroDescription[0]}<br className="desktop-break" /> {t.heroDescription[1]}</p>
             <div className="hero-actions">
-              <Button asChild size="lg"><a href={cv.url} download="Gemini-Chinasamy-CV.pdf"><Download /> {t.download}</a></Button>
+              <Button asChild size="lg"><a href={cv.url} download="CV_Gemini_CHINASAMY.pdf"><Download /> {t.download}</a></Button>
               <Button asChild variant="outline" size="lg"><a href="#parcours">{t.discover} <ArrowDown /></a></Button>
             </div>
             <div className="hero-location"><MapPin size={14} /><span>{t.location}</span><span className="location-divider" /><a href="https://www.linkedin.com/in/geminichinasamy" target="_blank" rel="noopener noreferrer"><Linkedin size={14} /> LinkedIn <ArrowUpRight size={12} /></a></div>
