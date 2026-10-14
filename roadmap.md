@@ -2,3 +2,5 @@
 - [x] Créer le CV haut de gamme à partir du profil et des portraits fournis.
 - [x] Ajouter le parcours interactif et les filtres de compétences.
 - [x] Vérifier les contacts, le téléchargement et l'affichage.
+- [ ] Ajouter la version anglaise complète et le sélecteur FR/EN.
+- [ ] Supprimer l’ancienne adresse e-mail et vérifier les deux langues.
