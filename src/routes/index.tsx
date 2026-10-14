@@ -6,22 +6,11 @@ import studio from '@/assets/gemini-studio.jpg.asset.json';
 import portrait from '@/assets/gemini-portrait.png.asset.json';
 import cv from '@/assets/gemini-cv.pdf.asset.json';
 import { categories, getExperiences, getSkills, cvCopy, englishCategories, contactEmail, type Category, type Language } from '@/lib/cv-data';
+import { getCvHead } from '@/lib/cv-seo';
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): { lang?: Language } => ({ lang: search['lang'] === 'en' ? 'en' : 'fr' }),
-  head: ({ match }) => {
-    const copy = cvCopy[match.search.lang ?? 'fr'];
-    return { meta: [
-      { title: copy.title },
-      { name: 'description', content: copy.description },
-      { property: 'og:title', content: copy.title },
-      { property: 'og:description', content: copy.description },
-      { property: 'og:type', content: 'profile' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { property: 'og:image', content: studio.url },
-      { name: 'twitter:image', content: studio.url },
-    ] };
-  },
+  head: ({ match }) => getCvHead(match.search.lang ?? 'fr'),
   component: Index,
 });
 

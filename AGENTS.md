@@ -15,3 +15,4 @@
 - Keep the resume as one index route with anchored sections; chronology expansion and category filters are client-side presentation state.
 
 - Keep both CV languages in the browser-safe CV data module and select them with the index route’s validated `lang` search parameter so shared links, page metadata and document language stay aligned.
+- Build language-specific SEO in the browser-safe `src/lib/cv-seo.ts` helper consumed by the index head; keep canonical and reciprocal language URLs there to prevent inconsistent share identities. Use a resized Lovable Assets photo rendition for social metadata so crawlers receive a compact absolute image URL without altering the visible portrait.
