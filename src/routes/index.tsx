@@ -8,9 +8,9 @@ import cv from '@/assets/gemini-cv.pdf.asset.json';
 import { categories, getExperiences, getSkills, cvCopy, englishCategories, contactEmail, type Category, type Language } from '@/lib/cv-data';
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): { lang: Language } => ({ lang: search.lang === 'en' ? 'en' : 'fr' }),
+  validateSearch: (search: Record<string, unknown>): { lang?: Language } => ({ lang: search['lang'] === 'en' ? 'en' : 'fr' }),
   head: ({ match }) => {
-    const copy = cvCopy[match.search.lang];
+    const copy = cvCopy[match.search.lang ?? 'fr'];
     return { meta: [
       { title: copy.title },
       { name: 'description', content: copy.description },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
 const sectionIds = ['profil', 'parcours', 'expertises', 'formation'];
 
 function Index() {
-  const { lang } = Route.useSearch();
+  const { lang = 'fr' } = Route.useSearch();
   const t = cvCopy[lang];
   const hash = useLocation({ select: location => location.hash });
   const links = sectionIds.map((id, index) => ({ href: `#${id}`, label: t.nav[index] }));
