@@ -1,11 +1,12 @@
 import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
 import { useState } from 'react';
-import { ArrowDown, ArrowUpRight, Check, ChevronDown, Download, GraduationCap, Linkedin, Mail, MapPin, Menu, ShieldCheck, X } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, ChevronDown, Download, GraduationCap, Linkedin, Mail, MapPin, Menu, Phone, ShieldCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import studio from '@/assets/gemini-studio.jpg.asset.json';
 import portrait from '@/assets/gemini-portrait.png.asset.json';
-import cv from '@/assets/cv-gemini-chinasamy.pdf.asset.json';
-import { categories, getExperiences, getSkills, cvCopy, englishCategories, contactEmail, type Category, type Language } from '@/lib/cv-data';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
+import { getCvDownload } from '@/lib/cv-downloads';
+import { categories, getExperiences, getSkills, cvCopy, englishCategories, contactEmail, contactPhone, contactPhoneHref, type Category, type Language } from '@/lib/cv-data';
 import { getCvHead } from '@/lib/cv-seo';
 
 export const Route = createFileRoute("/")({
@@ -62,7 +63,16 @@ function Index() {
             <h2>{t.role[0]}<br />{t.role[1]}</h2>
             <p className="hero-description">{t.heroDescription[0]}<br className="desktop-break" /> {t.heroDescription[1]}</p>
             <div className="hero-actions">
-              <Button asChild size="lg"><a href={cv.url} download="CV_Gemini_CHINASAMY.pdf"><Download /> {t.download}</a></Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild><Button size="lg"><Download /> {t.download} <ChevronDown /></Button></DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="min-w-56">
+                  <DropdownMenuLabel>{lang === 'fr' ? 'Langue du document' : 'Document language'}</DropdownMenuLabel>
+                  {(['fr', 'en'] as const).map(language => {
+                    const document = getCvDownload(language);
+                    return <DropdownMenuItem asChild key={language}><a href={document.url} download={document.filename} lang={language}><Download /><span>{language === 'fr' ? 'Français' : 'English'}</span><span className="ml-auto text-xs text-muted-foreground">PDF</span></a></DropdownMenuItem>;
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Button asChild variant="outline" size="lg"><a href="#parcours">{t.discover} <ArrowDown /></a></Button>
             </div>
             <div className="hero-location"><MapPin size={14} /><span>{t.location}</span><span className="location-divider" /><a href="https://www.linkedin.com/in/geminichinasamy" target="_blank" rel="noopener noreferrer"><Linkedin size={14} /> LinkedIn <ArrowUpRight size={12} /></a></div>
@@ -117,7 +127,7 @@ function Index() {
           <div className="languages"><div className="section-label"><span>{t.languagesLabel}</span><h2>{t.languagesHeading}</h2></div>{t.languages.map(language => <div className="language-item" key={language.name}><div><strong>{language.name}</strong><span>{language.level}</span></div><div className={`language-meter ${language.className}`}><i /><i /><i /><i /><i /></div></div>)}</div>
         </div></section>
 
-        <section id="contact" className="contact-section"><div className="section-container contact-layout"><div><span className="contact-eyebrow">{t.contactLabel}</span><h2>{t.contactHeading[0]}<br />{t.contactHeading[1]}<span>.</span></h2><p>{t.contactDescription[0]}<br />{t.contactDescription[1]}</p><Button asChild size="lg"><a href={`mailto:${contactEmail}`}>{t.message} <ArrowUpRight /></a></Button></div><div className="contact-details"><div className="contact-person"><img src={portrait.url} alt={t.portraitAlt} loading="lazy" /><div><strong>Gemini CHINASAMY</strong><span>{t.shortRole}</span></div></div><a href={`mailto:${contactEmail}`} className="contact-link"><Mail /><span>{contactEmail}</span><ArrowUpRight /></a><a href="https://www.linkedin.com/in/geminichinasamy" target="_blank" rel="noopener noreferrer" className="contact-link"><Linkedin /><span>{t.linkedin}</span><ArrowUpRight /></a><div className="contact-bottom"><span><MapPin size={14} /> {t.location}</span><Button variant="ghost" size="sm" onClick={copyEmail}>{copied ? <><Check /> {t.copied}</> : t.copy}</Button></div>{copyFailed && <p role="alert" className="copy-error">{t.copyError} {contactEmail}</p>}</div></div></section>
+        <section id="contact" className="contact-section"><div className="section-container contact-layout"><div><span className="contact-eyebrow">{t.contactLabel}</span><h2>{t.contactHeading[0]}<br />{t.contactHeading[1]}<span>.</span></h2><p>{t.contactDescription[0]}<br />{t.contactDescription[1]}</p><Button asChild size="lg"><a href={`mailto:${contactEmail}`}>{t.message} <ArrowUpRight /></a></Button></div><div className="contact-details"><div className="contact-person"><img src={portrait.url} alt={t.portraitAlt} loading="lazy" /><div><strong>Gemini CHINASAMY</strong><span>{t.shortRole}</span></div></div><a href={`mailto:${contactEmail}`} className="contact-link"><Mail /><span>{contactEmail}</span><ArrowUpRight /></a><a href={contactPhoneHref} className="contact-link" aria-label={`${lang === 'fr' ? 'Appeler Gemini CHINASAMY au' : 'Call Gemini CHINASAMY at'} ${contactPhone}`}><Phone /><span>{contactPhone}</span><ArrowUpRight /></a><a href="https://www.linkedin.com/in/geminichinasamy" target="_blank" rel="noopener noreferrer" className="contact-link"><Linkedin /><span>{t.linkedin}</span><ArrowUpRight /></a><div className="contact-bottom"><span><MapPin size={14} /> {t.location}</span><Button variant="ghost" size="sm" onClick={copyEmail}>{copied ? <><Check /> {t.copied}</> : t.copy}</Button></div>{copyFailed && <p role="alert" className="copy-error">{t.copyError} {contactEmail}</p>}</div></div></section>
       </main>
       <footer className="site-footer"><a href="#profil" className="wordmark flip-mark" aria-label="Gemini CHINASAMY — Curriculum Vitae"><span className="flap" aria-hidden="true"><span className="flap-inner"><b>G</b><b className="back">C</b></span></span><span className="flap flap-2" aria-hidden="true"><span className="flap-inner"><b>C</b><b className="back">V</b></span></span><span className="dot" aria-hidden="true">.</span></a><span>© {new Date().getFullYear()} Gemini CHINASAMY</span><a href="#profil">{t.top} <ArrowUpRight size={14} /></a></footer>
     </div>
