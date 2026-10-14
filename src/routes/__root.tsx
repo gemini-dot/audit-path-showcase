@@ -79,13 +79,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gemini CHINASAMY — CV professionnel" },
-      { name: "description", content: "Gemini CHINASAMY, Audit Manager & Expert Stratégie Sinistres IARD." },
       { name: "author", content: "Gemini CHINASAMY" },
-      { property: "og:title", content: "Gemini CHINASAMY — CV professionnel" },
-      { property: "og:description", content: "Audit, maîtrise des risques et conformité assurantielle." },
+      { property: "og:site_name", content: "Gemini CHINASAMY" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
