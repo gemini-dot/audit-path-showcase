@@ -41,7 +41,7 @@ function Index() {
   return (
     <div className="cv-site">
       <header className="site-header">
-        <a href="#profil" className="wordmark" aria-label={t.home}>GC<span>.</span></a>
+        <a href="#profil" className="wordmark flip-mark" aria-label="Gemini CHINASAMY — Curriculum Vitae"><span className="flap" aria-hidden="true"><span className="flap-inner"><b>G</b><b className="back">C</b></span></span><span className="flap flap-2" aria-hidden="true"><span className="flap-inner"><b>C</b><b className="back">V</b></span></span><span className="dot" aria-hidden="true">.</span></a>
         <nav className="desktop-nav" aria-label={t.mainNav}>
           {links.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}
         </nav>
@@ -119,7 +119,7 @@ function Index() {
 
         <section id="contact" className="contact-section"><div className="section-container contact-layout"><div><span className="contact-eyebrow">{t.contactLabel}</span><h2>{t.contactHeading[0]}<br />{t.contactHeading[1]}<span>.</span></h2><p>{t.contactDescription[0]}<br />{t.contactDescription[1]}</p><Button asChild size="lg"><a href={`mailto:${contactEmail}`}>{t.message} <ArrowUpRight /></a></Button></div><div className="contact-details"><div className="contact-person"><img src={portrait.url} alt={t.portraitAlt} loading="lazy" /><div><strong>Gemini CHINASAMY</strong><span>{t.shortRole}</span></div></div><a href={`mailto:${contactEmail}`} className="contact-link"><Mail /><span>{contactEmail}</span><ArrowUpRight /></a><a href="https://www.linkedin.com/in/geminichinasamy" target="_blank" rel="noopener noreferrer" className="contact-link"><Linkedin /><span>{t.linkedin}</span><ArrowUpRight /></a><div className="contact-bottom"><span><MapPin size={14} /> {t.location}</span><Button variant="ghost" size="sm" onClick={copyEmail}>{copied ? <><Check /> {t.copied}</> : t.copy}</Button></div>{copyFailed && <p role="alert" className="copy-error">{t.copyError} {contactEmail}</p>}</div></div></section>
       </main>
-      <footer className="site-footer"><a href="#profil" className="wordmark">GC<span>.</span></a><span>© {new Date().getFullYear()} Gemini CHINASAMY</span><a href="#profil">{t.top} <ArrowUpRight size={14} /></a></footer>
+      <footer className="site-footer"><a href="#profil" className="wordmark flip-mark" aria-label="Gemini CHINASAMY — Curriculum Vitae"><span className="flap" aria-hidden="true"><span className="flap-inner"><b>G</b><b className="back">C</b></span></span><span className="flap flap-2" aria-hidden="true"><span className="flap-inner"><b>C</b><b className="back">V</b></span></span><span className="dot" aria-hidden="true">.</span></a><span>© {new Date().getFullYear()} Gemini CHINASAMY</span><a href="#profil">{t.top} <ArrowUpRight size={14} /></a></footer>
     </div>
   );
 }
