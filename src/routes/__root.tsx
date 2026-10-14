@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -102,8 +103,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const search = useRouterState({ select: state => state.location.searchStr });
+  const language = new URLSearchParams(search).get("lang") === "en" ? "en" : "fr";
   return (
-    <html lang="fr">
+    <html lang={language}>
       <head>
         <HeadContent />
       </head>
