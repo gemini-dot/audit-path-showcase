@@ -6,11 +6,11 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// DEPLOY_TARGET=vps builds a standalone Node.js server served under /cv (see `npm run build:vps`).
+// DEPLOY_TARGET=vps builds a standalone Node.js server served under /gemini/cv (see `npm run build:vps`).
 const isVps = process.env["DEPLOY_TARGET"] === "vps";
 
 export default defineConfig({
-  vite: isVps ? { base: "/cv/" } : {},
+  vite: isVps ? { base: "/gemini/cv/" } : {},
   ...(isVps ? { nitro: { preset: "node-server" } } : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
