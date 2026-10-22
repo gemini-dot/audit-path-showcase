@@ -11,7 +11,9 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build:vps": "DEPLOY_TARGET=vps vite build",
+    "start:vps": "PORT=3000 HOST=127.0.0.1 node .output/server/index.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
