@@ -2,9 +2,10 @@ import shareImage from '@/assets/gemini-share.jpg.asset.json';
 import { cvCopy, type Language } from '@/lib/cv-data';
 
 const siteUrl = 'https://gemini.chinasamy.com';
+export const cvUrl = `${siteUrl}/cv`;
 const languageUrls = {
-  fr: `${siteUrl}/?lang=fr`,
-  en: `${siteUrl}/?lang=en`,
+  fr: `${cvUrl}?lang=fr`,
+  en: `${cvUrl}?lang=en`,
 };
 
 export function getCvHead(language: Language) {

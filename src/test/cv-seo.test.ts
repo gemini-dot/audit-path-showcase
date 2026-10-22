@@ -4,7 +4,7 @@ import { getCvHead } from '../lib/cv-seo';
 describe('Bilingual CV sharing', () => {
   it.each(['fr', 'en'] as const)('self-references the %s language URL', language => {
     const head = getCvHead(language);
-    const expectedUrl = `https://gemini.chinasamy.com/?lang=${language}`;
+    const expectedUrl = `https://gemini.chinasamy.com/cv?lang=${language}`;
     expect(head.links.find(link => link.rel === 'canonical')?.href).toBe(expectedUrl);
     expect(head.meta.find(tag => tag.property === 'og:url')?.content).toBe(expectedUrl);
     expect(head.links.filter(link => link.rel === 'alternate').map(link => link.hrefLang)).toEqual(['fr', 'en', 'x-default']);
