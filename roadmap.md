@@ -8,4 +8,5 @@
 - [x] Remplacer le CV téléchargeable par la nouvelle version (CV_Gemini_CHINASAMY.pdf) et vérifier le téléchargement.
 - [x] Traduire le PDF fourni en anglais et proposer le choix FR/EN au téléchargement.
 - [x] Ajouter le téléphone avec appel direct et vérifier sur mobile.
-- [x] Remplacer l’icône du navigateur et supprimer les références visibles à Lovable.
+- [x] Remplacer l’icône du navigateur et supprimer les références visibles à Lovable.- [x] Préparer le déploiement VPS Node.js + PM2 sous /cv
+- [ ] Déployer sur le VPS (à faire par l'utilisateur, guide DEPLOY-VPS.md)
