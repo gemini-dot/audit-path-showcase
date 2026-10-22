@@ -20,7 +20,7 @@ describe('Bilingual CV sharing', () => {
   it('shares the same absolute, compact photo on Open Graph and X', () => {
     const head = getCvHead('fr');
     const image = head.meta.find(tag => tag.property === 'og:image')?.content;
-    expect(image).toMatch(/^https:\/\/gemini\.chinasamy\.com\/__l5e\/assets-v1\//);
+    expect(image).toMatch(/^https:\/\/www\.chinasamy\.com\/__l5e\/assets-v1\//);
     expect(head.meta.find(tag => tag.name === 'twitter:image')?.content).toBe(image);
     expect(head.meta.find(tag => tag.property === 'og:image:width')?.content).toBe('1200');
     expect(head.meta.find(tag => tag.property === 'og:image:height')?.content).toBe('630');
