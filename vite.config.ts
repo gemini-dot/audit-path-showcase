@@ -7,7 +7,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // DEPLOY_TARGET=vps builds a standalone Node.js server served under /cv (see `npm run build:vps`).
-const isVps = process.env.DEPLOY_TARGET === "vps";
+const isVps = process.env["DEPLOY_TARGET"] === "vps";
 
 export default defineConfig({
   vite: isVps ? { base: "/cv/" } : {},
