@@ -17,4 +17,4 @@
 
 - Keep both CV languages in the browser-safe CV data module and select them with the index route’s validated `lang` search parameter so shared links, page metadata and document language stay aligned.
 - Build language-specific SEO in the browser-safe `src/lib/cv-seo.ts` helper consumed by the index head; keep canonical and reciprocal language URLs there to prevent inconsistent share identities. Use a resized Lovable Assets photo rendition for social metadata so crawlers receive a compact absolute image URL without altering the visible portrait.
-- VPS deployment uses `DEPLOY_TARGET=vps` (vite base `/cv/`, nitro `node-server`, router basepath from `BASE_URL`) so the Lovable preview stays at `/` while the VPS serves the CV under `/cv`; see DEPLOY-VPS.md.
+- VPS deployment uses `DEPLOY_TARGET=vps` (vite base `/gemini/cv/`, nitro `node-server`, router basepath from `BASE_URL`) so the Lovable preview stays at `/` while the VPS serves the CV under `/gemini/cv`; see DEPLOY-VPS.md.
